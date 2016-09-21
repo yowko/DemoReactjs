@@ -9,22 +9,22 @@ class ShoppingCartList extends React.Component
       constructor(props){
           super(props);
           this.state={
-              //productList: [],
-              //total:this.MoneySum([])
-              productList:this.props.initialProductList,
-              total:this.MoneySum(this.props.initialProductList)
+              productList: [],
+              total:this.MoneySum([])
+              //productList:this.props.initialProductList,
+              //total:this.MoneySum(this.props.initialProductList)
             };
             
       }
     // API 用
-    //  componentDidMount() {
-    //   this.serverRequest = $.get("http://localhost:3511/api/CartList", function (result) {
-    //    this.setState({
-    //          productList: result,
-    //          total:this.MoneySum(result)
-    //          });
-    //      }.bind(this));
-    //   }
+      componentDidMount() {
+       this.serverRequest = $.get("http://localhost:3511/api/CartList", function (result) {
+        this.setState({
+              productList: result,
+              total:this.MoneySum(result)
+              });
+          }.bind(this));
+       }
     
     render(){
         return (
